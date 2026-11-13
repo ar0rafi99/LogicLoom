@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LogicLoom | Weaving Logic into Innovation</title>
+<meta name="description" content="LogicLoom is a technology and innovation studio building modern websites, AI-powered solutions, intelligent agents, and digital experiences.">
+<meta property="og:title" content="LogicLoom | Weaving Logic into Innovation">
+<meta property="og:description" content="Modern websites, AI-powered solutions, intelligent agents, and digital experiences.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img1.png">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080A0F;--bg2:#10141C;--teal:#00D6C5;--cyan:#00BFFF;--gold:#D6A843;--silver:#BFC7D1;--fg:#F4F7FA;--mute:#929BA8;--line:rgba(191,199,209,.16);--glass:rgba(8,10,15,.72);--accent:var(--teal)}
+[data-theme=light]{--bg:#F4F7FA;--bg2:#E8EDF3;--teal:#007F76;--cyan:#006C99;--gold:#8F6A12;--silver:#4B5663;--fg:#0B1017;--mute:#4F5A68;--line:rgba(16,20,28,.16);--glass:rgba(244,247,250,.8)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.65 Inter,system-ui,sans-serif;overflow-x:hidden;transition:background .4s,color .4s}
+h1,h2,h3,.brand{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-.02em;line-height:1.1}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(4rem,9vw,7.5rem) 0}
+h2{font-size:clamp(1.9rem,4.5vw,3.1rem);max-width:18ch}
+.lead{color:var(--mute);max-width:56ch;margin-top:1rem}
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:50;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:1rem;height:68px}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;font-size:1.15rem;margin-right:auto}
+.brand img{height:38px;width:auto}
+.links{display:flex;gap:.2rem;position:relative}
+.links a{text-decoration:none;padding:.5rem .75rem;font-size:.92rem;color:var(--mute);transition:color .2s;position:relative}
+.links a:hover,.links a.on{color:var(--fg)}
+.links a.on::after{content:"";position:absolute;left:.75rem;right:.75rem;bottom:2px;height:2px;background:var(--teal);border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.4rem;border-radius:999px;border:1px solid var(--teal);background:var(--teal);color:#041513;font:700 .95rem 'Space Grotesk',sans-serif;text-decoration:none;cursor:pointer;transition:box-shadow .25s,transform .25s}
+.btn:hover{box-shadow:0 0 28px rgba(0,214,197,.5);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--silver)}
+.btn.sm{padding:.55rem 1.05rem;font-size:.88rem}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;display:grid;place-items:center}
+.icon-btn:hover{border-color:var(--teal)}
+#menu{display:none}
+@media(max-width:900px){
+ #menu{display:grid}.nav-cta{display:none}
+ .links{position:fixed;inset:68px 0 auto;flex-direction:column;background:var(--bg);padding:1rem 1.25rem 1.5rem;border-bottom:1px solid var(--line);transform:translateY(-120%);visibility:hidden;transition:transform .35s,visibility .35s}
+ .links.open{transform:none;visibility:visible}
+ .links a{padding:.9rem 0;font-size:1.05rem}.links a.on::after{left:0;right:auto;width:28px}
+}
+/* hero */
+#home{min-height:100svh;display:flex;align-items:center;position:relative;padding:7rem 0 4rem;overflow:hidden}
+#loom{position:absolute;inset:0;width:100%;height:100%}
+#home::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 25% 50%,var(--bg) 20%,transparent 100%);pointer-events:none}
+.hero{position:relative;z-index:2}
+h1{font-size:clamp(2.6rem,8vw,5.6rem);max-width:12ch}
+h1 span{display:block;color:var(--silver)}
+.hero p{color:var(--mute);font-size:clamp(1.02rem,2vw,1.2rem);max-width:50ch;margin:1.5rem 0 2rem}
+.cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.about p+p{margin-top:1rem}
+.about p{color:var(--mute)}
+.frame{border:1px solid var(--line);border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(135deg,var(--bg2),var(--bg));position:relative}
+.frame img{width:100%;height:100%;object-fit:cover}
+.gold-line{width:56px;height:3px;background:var(--gold);margin-bottom:1.4rem;border-radius:2px}
+@media(max-width:800px){.about{grid-template-columns:1fr}.frame{aspect-ratio:16/10}}
+/* services */
+.grid{display:grid;gap:1.1rem;margin-top:3rem}
+.services{grid-template-columns:repeat(6,1fr)}
+.card{grid-column:span 2;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:1.6rem;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.card:nth-child(4),.card:nth-child(5){grid-column:span 3}
+.card:hover{border-color:var(--teal);transform:translateY(-4px)}
+.card svg{width:34px;height:34px;stroke:var(--teal);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:1.1rem}
+.card:nth-child(2) svg{stroke:var(--cyan)}
+.card h3{font-size:1.25rem;margin-bottom:.5rem}
+.card p{color:var(--mute);font-size:.95rem}
+.card a{display:inline-block;margin-top:1rem;color:var(--teal);font-weight:500;text-decoration:none;border-bottom:1px solid currentColor}
+@media(max-width:900px){.services{grid-template-columns:1fr 1fr}.card,.card:nth-child(4),.card:nth-child(5){grid-column:auto}}
+@media(max-width:560px){.services{grid-template-columns:1fr}}
+/* projects */
+.projects{grid-template-columns:1.4fr 1fr;grid-auto-rows:minmax(240px,auto)}
+.proj{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,var(--bg2),var(--bg));min-height:260px;display:flex;align-items:flex-end}
+.proj:first-child{grid-row:span 2}
+.proj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.proj:hover img{transform:scale(1.05)}
+.proj .info{position:relative;width:100%;padding:1.4rem;background:linear-gradient(transparent,var(--bg) 85%)}
+.tag{display:inline-block;font-size:.78rem;padding:.15rem .6rem;border:1px solid var(--gold);color:var(--gold);border-radius:99px;margin-bottom:.6rem}
+.proj h3{font-size:1.25rem}.proj p{color:var(--mute);font-size:.92rem;margin-top:.3rem}
+.stack{font-size:.82rem;color:var(--silver);margin-top:.5rem}
+.note{margin-top:1.2rem;color:var(--mute);font-size:.9rem}
+@media(max-width:800px){.projects{grid-template-columns:1fr}.proj:first-child{grid-row:auto}}
+/* process */
+.steps{list-style:none;padding:0;margin-top:3.2rem;display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;top:19px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--cyan),var(--gold));opacity:.5;transform-origin:left;transform:scaleX(0);transition:transform 1.6s ease}
+.steps.in::before{transform:scaleX(1)}
+.steps li{position:relative;padding-top:3.2rem;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;top:0;left:0;width:40px;height:40px;border-radius:50%;background:var(--bg);border:2px solid var(--teal);display:grid;place-items:center;font:700 .95rem 'Space Grotesk'}
+.steps h3{font-size:1.1rem;margin-bottom:.4rem}.steps p{color:var(--mute);font-size:.9rem}
+@media(max-width:900px){.steps{grid-template-columns:1fr;gap:1.6rem}.steps::before{top:0;bottom:0;left:19px;right:auto;width:2px;height:auto;transform:scaleY(0);transform-origin:top}.steps.in::before{transform:scaleY(1)}.steps li{padding:0 0 0 3.4rem}}
+/* why */
+.why{grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.why div{padding:1.8rem;border:0 solid var(--line);border-width:0 1px 1px 0;transition:background .3s}
+.why div:hover{background:var(--bg2)}
+.why h3{font-size:1.15rem;margin-bottom:.5rem}.why h3::before{content:"";display:block;width:24px;height:2px;background:var(--gold);margin-bottom:.9rem}
+.why p{color:var(--mute);font-size:.94rem}
+@media(max-width:800px){.why{grid-template-columns:1fr}}
+/* connect */
+.connect{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
+.side p{color:var(--mute);margin:1rem 0 1.6rem}
+.side a.link{display:block;margin:.5rem 0;color:var(--fg);text-decoration:none}
+.side a.link:hover{color:var(--teal)}
+form{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:1.6rem;display:grid;gap:1rem}
+label{display:grid;gap:.35rem;font-size:.9rem;color:var(--silver)}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(0,214,197,.2)}
+textarea{min-height:130px;resize:vertical}
+.err{color:#ff7a7a;font-size:.82rem;min-height:1em}
+[data-theme=light] .err{color:#b3261e}
+[aria-invalid=true]{border-color:#ff7a7a}
+#status{font-size:.92rem;min-height:1.4em}
+@media(max-width:800px){.connect{grid-template-columns:1fr}}
+/* footer */
+footer{border-top:1px solid var(--line);padding:3rem 0 2rem}
+.foot{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center}
+.foot nav{height:auto;gap:1.2rem;flex-wrap:wrap}.foot nav a{color:var(--mute);text-decoration:none;font-size:.92rem}.foot nav a:hover{color:var(--teal)}
+.copy{margin-top:2rem;color:var(--mute);font-size:.85rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+/* reveal + cursor */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+#cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--teal);border-radius:50%;pointer-events:none;z-index:99;opacity:0;transition:width .2s,height .2s,margin .2s,opacity .3s,background .2s}
+#cur.big{width:56px;height:56px;margin:-28px 0 0 -28px;background:rgba(0,214,197,.1)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}.steps::before{transform:none}}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;z-index:100;background:var(--teal);color:#000;padding:.5rem 1rem;border-radius:8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+<header>
+ <nav class="wrap" aria-label="Main">
+  <a class="brand" href="#home" aria-label="LogicLoom home"><img src="logo.png" alt="LogicLoom logo" width="38" height="38" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><span hidden>LogicLoom</span></a>
+  <div class="links" id="links">
+   <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Our Process</a><a href="#why">Why Choose Us</a><a href="#connect">Connect</a>
+  </div>
+  <button class="icon-btn" id="theme" aria-label="Switch to light theme" type="button">◐</button>
+  <a class="btn sm nav-cta" href="#connect">Let's Build Together</a>
+  <button class="icon-btn" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="links" type="button">☰</button>
+ </nav>
+</header>
+
+<main>
+<section id="home" aria-labelledby="h1">
+ <canvas id="loom" aria-hidden="true"></canvas>
+ <div class="wrap hero">
+  <h1 id="h1">Weaving Logic <span>into Innovation.</span></h1>
+  <p>LogicLoom transforms ambitious ideas into intelligent digital experiences through modern web development, AI-powered solutions, and creative engineering.</p>
+  <div class="cta-row"><a class="btn" href="#connect">Let's Build Together</a><a class="btn ghost" href="#services">See what we build</a></div>
+ </div>
+</section>
+
+<section id="about" aria-labelledby="h-about">
+ <div class="wrap about">
+  <div class="rv">
+   <div class="gold-line"></div>
+   <h2 id="h-about">Technology that starts with your problem.</h2>
+   <p class="lead">LogicLoom is a small technology and innovation studio. We build websites, machine learning projects, and AI agents for people who have a good idea and need it to work in the real world.</p>
+   <p>We started LogicLoom because good engineering shouldn't be reserved for big companies. Startups, small businesses, and ambitious individuals deserve software that is fast, clear, and built with care.</p>
+   <p>Our approach is simple: understand the problem first, pick the right tools second, and keep learning as the tools change. We'd rather ship something useful than something flashy.</p>
+  </div>
+  <div class="frame rv"><img src="img1.png" alt="The LogicLoom team workspace with code and hardware prototypes" loading="lazy" onerror="this.remove()"></div>
+ </div>
+</section>
+
+<section id="services" aria-labelledby="h-serv">
+ <div class="wrap">
+  <h2 id="h-serv" class="rv">Five ways we can help.</h2>
+  <p class="lead rv">Pick one or combine them. Every project starts with a conversation about what you actually need.</p>
+  <div class="grid services" id="svc"></div>
+ </div>
+</section>
+
+<section id="projects" aria-labelledby="h-proj">
+ <div class="wrap">
+  <h2 id="h-proj" class="rv">Concept work and experiments.</h2>
+  <p class="lead rv">These are concept projects and prototypes we built to explore ideas. They are not client work. Real projects will be added here as they launch.</p>
+  <div class="grid projects" id="pj"></div>
+  <p class="note">Sample cards are placeholders: edit the <code>PROJECTS</code> list in the script to add your real projects.</p>
+ </div>
+</section>
+
+<section id="process" aria-labelledby="h-proc">
+ <div class="wrap">
+  <h2 id="h-proc" class="rv">How a project moves from idea to launch.</h2>
+  <ol class="steps" id="steps"></ol>
+ </div>
+</section>
+
+<section id="why" aria-labelledby="h-why">
+ <div class="wrap">
+  <h2 id="h-why" class="rv">Why work with LogicLoom.</h2>
+  <div class="grid why rv" id="wy"></div>
+ </div>
+</section>
+
+<section id="connect" aria-labelledby="h-con">
+ <div class="wrap connect">
+  <div class="side rv">
+   <h2 id="h-con">Have an Idea? Let's Build Something Extraordinary.</h2>
+   <p>Tell us what you're working on. Even a rough idea is a good place to start, and we'll reply with honest next steps.</p>
+   <a class="link" id="mail" href="#connect">Email: your-email@example.com</a>
+   <a class="link" href="https://www.instagram.com/logicloom.tech/" target="_blank" rel="noopener noreferrer">Instagram: @logicloom.tech</a>
+  </div>
+  <form id="form" novalidate class="rv">
+   <label>Name<input id="n" name="name" autocomplete="name" required><span class="err" data-for="n"></span></label>
+   <label>Email<input id="e" name="email" type="email" autocomplete="email" required><span class="err" data-for="e"></span></label>
+   <label>Service of interest<select id="s" name="service" required><option value="">Choose a service</option><option>Business Website</option><option>AI / ML Project</option><option>Landing Page</option><option>AI Agent</option><option>E-commerce Website</option><option>Not sure yet</option></select><span class="err" data-for="s"></span></label>
+   <label>Project details<textarea id="d" name="details" required minlength="15"></textarea><span class="err" data-for="d"></span></label>
+   <input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+   <button class="btn" type="submit">Send message</button>
+   <p id="status" role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="foot">
+   <div><a class="brand" href="#home"><img src="logo.png" alt="LogicLoom" width="38" height="38" onerror="this.remove()"><span>LogicLoom</span></a><p style="color:var(--mute);margin-top:.5rem">Weaving Logic into Innovation.</p></div>
+   <nav aria-label="Footer"><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Our Process</a><a href="#why">Why Choose Us</a><a href="#connect">Connect</a><a href="https://www.instagram.com/logicloom.tech/" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
+  </div>
+  <div class="copy"><span>© <span id="yr">2026</span> LogicLoom. All rights reserved.</span><a href="#home">Back to top</a></div>
+ </div>
+</footer>
+<div id="cur" aria-hidden="true"></div>
+
+<script>
+/* ===== EDIT HERE ===== */
+const CONFIG={
+ email:"ar0rafi99@gmail.com",            // e.g. "hello@logicloom.tech" (enables mailto fallback + footer link)
+ formEndpoint:"https://formspree.io/f/mgakoeav"      // e.g. Formspree URL "https://formspree.io/f/xxxx" (preferred)
+};
+const SERVICES=[
+ ["Business Websites","Clear, fast websites that show visitors who you are and make it easy to contact you.","M3 5h18v14H3zM3 9h18M7 7h.01"],
+ ["AI / ML Projects","Machine learning models and data tools, from first experiment to something you can use.","M12 3a3 3 0 0 0-3 3 3 3 0 0 0-4 3 3 3 0 0 0 1 5 3 3 0 0 0 4 4 3 3 0 0 0 4 0 3 3 0 0 0 4-4 3 3 0 0 0 1-5 3 3 0 0 0-4-3 3 3 0 0 0-3-3zM12 3v18"],
+ ["Landing Pages","Focused single pages built to explain one offer and get one action.","M4 4h16v16H4zM4 10h16M9 10v10"],
+ ["AI Agents","Assistants that handle repetitive tasks, answer questions, and connect to the tools you already use.","M12 8V4M8 4h8M5 8h14v10H5zM9 13h.01M15 13h.01M9 21h6"],
+ ["E-commerce Websites","Online stores that are simple to browse, simple to manage, and ready to grow.","M3 4h2l2 12h11l2-8H6M9 20h.01M17 20h.01"]
+];
+const PROJECTS=[
+ {t:"Smart Business Site",c:"Concept · Business website",d:"A fictional service-business site exploring layout, speed, and clear calls to action.",k:"HTML, CSS, JavaScript",img:"img2.png"},
+ {t:"Vision Detector",c:"Prototype · AI / ML",d:"An experiment in object detection using a small trained model.",k:"Python, NumPy",img:"img3.png"},
+ {t:"Support Agent",c:"Concept · AI agent",d:"A concept chatbot that answers common questions for a small shop.",k:"To be decided",img:"img4.png"}
+];
+const STEPS=[["Discover","We listen, ask questions, and learn who your users are."],["Plan","We agree on scope, features, and a realistic timeline."],["Design","We sketch the structure and visuals before any code."],["Develop","We build in small steps and share progress often."],["Test","We check devices, speed, and edge cases."],["Launch","We go live, then help with updates and improvements."]];
+const WHY=[["Innovation-driven","We follow new tools, but only use them when they help."],["Modern technology","Current frameworks and practices, without extra weight."],["User-focused design","Every page is built around what the visitor needs to do."],["Thoughtful problem-solving","We ask why before we decide how."],["Clean, maintainable code","Organized so you or another developer can build on it."],["Continuous improvement","We review, measure, and refine after launch."]];
+/* ===================== */
+const $=s=>document.querySelector(s),root=document.documentElement;
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+$('#svc').innerHTML=SERVICES.map(([t,d,p])=>`<article class="card rv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${p}"/></svg><h3>${t}</h3><p>${d}</p><a href="#connect" data-svc="${t}">Talk to us</a></article>`).join('');
+$('#pj').innerHTML=PROJECTS.map(p=>`<article class="proj rv"><img src="${p.img}" alt="${p.t} concept preview" loading="lazy" onerror="this.remove()"><div class="info"><span class="tag">${p.c}</span><h3>${p.t}</h3><p>${p.d}</p><p class="stack">${p.k}</p></div></article>`).join('');
+$('#steps').innerHTML=STEPS.map(([t,d])=>`<li class="rv"><h3>${t}</h3><p>${d}</p></li>`).join('');
+$('#wy').innerHTML=WHY.map(([t,d])=>`<div><h3>${t}</h3><p>${d}</p></div>`).join('');
+if(CONFIG.email){const m=$('#mail');m.href='mailto:'+CONFIG.email;m.textContent='Email: '+CONFIG.email}
+else $('#mail').addEventListener('click',e=>e.preventDefault());
+
+/* theme */
+const tb=$('#theme');
+function setTheme(t){root.dataset.theme=t;tb.setAttribute('aria-label',t==='dark'?'Switch to light theme':'Switch to dark theme');try{localStorage.setItem('ll-theme',t)}catch(e){}}
+let saved=null;try{saved=localStorage.getItem('ll-theme')}catch(e){}
+setTheme(saved||'dark');
+tb.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+
+/* mobile menu */
+const menu=$('#menu'),links=$('#links');
+function closeMenu(){links.classList.remove('open');menu.setAttribute('aria-expanded','false')}
+menu.onclick=()=>{const o=links.classList.toggle('open');menu.setAttribute('aria-expanded',o)};
+links.addEventListener('click',e=>{if(e.target.tagName==='A')closeMenu()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+/* reveal + active nav */
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+io.observe($('#steps'));
+const navA=[...links.querySelectorAll('a')];
+const so=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)navA.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section').forEach(s=>so.observe(s));
+
+/* service pre-select */
+document.querySelectorAll('[data-svc]').forEach(a=>a.addEventListener('click',()=>{const map={"Business Websites":"Business Website","AI / ML Projects":"AI / ML Project","Landing Pages":"Landing Page","AI Agents":"AI Agent","E-commerce Websites":"E-commerce Website"};$('#s').value=map[a.dataset.svc]||''}));
+
+/* form */
+const f=$('#form'),st=$('#status');
+const rules={n:v=>v.trim().length>=2||'Enter your name.',e:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||'Enter a valid email address.',s:v=>!!v||'Choose a service.',d:v=>v.trim().length>=15||'Add at least 15 characters about your project.'};
+function check(id){const el=$('#'+id),r=rules[id](el.value),m=document.querySelector(`[data-for=${id}]`);m.textContent=r===true?'':r;el.setAttribute('aria-invalid',r!==true);return r===true}
+Object.keys(rules).forEach(id=>$('#'+id).addEventListener('blur',()=>check(id)));
+f.addEventListener('submit',async e=>{
+ e.preventDefault();st.textContent='';
+ const ok=Object.keys(rules).map(check).every(Boolean);
+ if(!ok){st.textContent='Please fix the highlighted fields.';return}
+ if($('#hp').value)return;
+ const data=Object.fromEntries(new FormData(f));
+ if(CONFIG.formEndpoint){
+  try{const r=await fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+   if(!r.ok)throw 0;st.textContent='Message sent. We will reply by email.';f.reset()}
+  catch(_){st.textContent='The message could not be sent. Please try again or contact us on Instagram.'}
+ }else if(CONFIG.email){
+  location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent('Project inquiry: '+data.service)}&body=${encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\n${data.details}`)}`;
+  st.textContent='Your email app should open with the message ready. It is only sent once you send it there.';
+ }else st.textContent='This form is not connected yet. Please message us on Instagram: @logicloom.tech';
+});
+
+/* custom cursor (fine pointers only) */
+if(matchMedia('(pointer:fine)').matches&&!reduce){
+ const c=$('#cur');let x=0,y=0,cx=0,cy=0;
+ addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;c.style.opacity=1;c.classList.toggle('big',!!e.target.closest('a,button,select,.card'))});
+ document.addEventListener('mouseleave',()=>c.style.opacity=0);
+ (function t(){cx+=(x-cx)*.2;cy+=(y-cy)*.2;c.style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(t)})();
+}
+
+/* hero: neural loom (canvas, 2D pseudo-3D) */
+(function(){
+ const cv=$('#loom'),g=cv.getContext('2d');if(!g)return;
+ const lowEnd=(navigator.hardwareConcurrency||4)<=2;
+ let W,H,nodes=[],edges=[],pulses=[],mx=0,my=0,run=true;
+ const cols=[5,6,6,5],COL=['0,214,197','0,191,255','214,168,67'];
+ function build(){
+  const r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;g.setTransform(d,0,0,d,0,0);
+  nodes=[];edges=[];const narrow=W<760,x0=narrow?W*.1:W*.42,x1=W*.95,L=narrow?cols.map(n=>Math.max(3,n-2)):cols;
+  L.forEach((n,i)=>{for(let j=0;j<n;j++)nodes.push({l:i,x:x0+(x1-x0)*i/(L.length-1)+(Math.random()-.5)*20,y:H*.15+H*.7*(j+.5)/n+(Math.random()-.5)*20,z:Math.random(),p:Math.random()*6.28})});
+  nodes.forEach((a,i)=>nodes.forEach((b,j)=>{if(b.l===a.l+1&&Math.random()<.55)edges.push([i,j])}));
+ }
+ function frame(t){
+  if(!run)return;g.clearRect(0,0,W,H);
+  const px=(mx-.5)*24,py=(my-.5)*24;
+  const pos=nodes.map(n=>({x:n.x+Math.sin(t/1800+n.p)*6+px*(n.z+.3),y:n.y+Math.cos(t/2100+n.p)*6+py*(n.z+.3)}));
+  g.lineWidth=1;
+  edges.forEach(([a,b],i)=>{const A=pos[a],B=pos[b];g.strokeStyle=`rgba(${COL[nodes[a].l%3]},.22)`;g.beginPath();g.moveTo(A.x,A.y);g.bezierCurveTo((A.x+B.x)/2,A.y,(A.x+B.x)/2,B.y,B.x,B.y);g.stroke()});
+  if(!reduce&&pulses.length<18&&Math.random()<.08)pulses.push({e:edges[Math.random()*edges.length|0],p:0});
+  pulses=pulses.filter(q=>(q.p+=.012)<1);
+  pulses.forEach(q=>{const A=pos[q.e[0]],B=pos[q.e[1]],u=q.p,m=(A.x+B.x)/2,k=1-u;
+   const X=k*k*k*A.x+3*k*k*u*m+3*k*u*u*m+u*u*u*B.x,Y=k*k*k*A.y+3*k*k*u*A.y+3*k*u*u*B.y+u*u*u*B.y;
+   g.fillStyle='rgba(214,168,67,.95)';g.shadowColor='#D6A843';g.shadowBlur=10;g.beginPath();g.arc(X,Y,2.4,0,6.3);g.fill();g.shadowBlur=0});
+  nodes.forEach((n,i)=>{const p=pos[i],r=2.5+n.z*3;g.fillStyle=`rgba(${COL[n.l%3]},${.55+n.z*.4})`;g.shadowColor=`rgb(${COL[n.l%3]})`;g.shadowBlur=12;g.beginPath();g.arc(p.x,p.y,r,0,6.3);g.fill();g.shadowBlur=0});
+  if(!reduce)requestAnimationFrame(frame);
+ }
+ build();addEventListener('resize',()=>{build();if(reduce)frame(0)});
+ addEventListener('mousemove',e=>{mx=e.clientX/innerWidth;my=e.clientY/innerHeight},{passive:true});
+ new IntersectionObserver(([x])=>{const was=run;run=x.isIntersecting;if(run&&!was&&!reduce)requestAnimationFrame(frame)}).observe(cv);
+ if(lowEnd||reduce){frame(0);} else requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
